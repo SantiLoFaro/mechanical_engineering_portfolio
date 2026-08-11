@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Santi Lo Faro | Mechanical Engineering & 3D Printing Portfolio</title>
+    <meta name="description" content="Mechanical engineering portfolio focused on CAD, additive manufacturing, FDM 3D printing, rapid prototyping and design for manufacturing.">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#0a0d0f">
+    <link rel="canonical" href="https://santilofaro.github.io/mechanical_engineering_portfolio/">
+
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Santi Lo Faro | Mechanical Engineering Portfolio">
+    <meta property="og:description" content="CAD, additive manufacturing, FDM 3D printing and rapid prototyping portfolio with interactive STL visualization.">
+    <meta property="og:url" content="https://santilofaro.github.io/mechanical_engineering_portfolio/">
+    <meta property="og:site_name" content="Santi Lo Faro — Mechanical Engineering Portfolio">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+
+    <script type="importmap">
+    {
+      "imports": {
+        "three": "https://cdn.jsdelivr.net/npm/three@0.180.0/build/three.module.js",
+        "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.180.0/examples/jsm/"
+      }
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ProfilePage",
+      "name": "Santi Lo Faro — Mechanical Engineering Portfolio",
+      "url": "https://santilofaro.github.io/mechanical_engineering_portfolio/",
+      "mainEntity": {
+        "@type": "Person",
+        "name": "Santi Lo Faro",
+        "sameAs": [
+          "https://github.com/SantiLoFaro",
+          "https://www.linkedin.com/in/santi-lo-faro-b2489118b/"
+        ],
+        "knowsAbout": [
+          "CAD",
+          "Additive Manufacturing",
+          "FDM 3D Printing",
+          "Rapid Prototyping",
+          "Design for Additive Manufacturing"
+        ]
+      }
+    }
+    </script>
+</head>
+<body>
+    <a class="skip-link" href="#main-content">Skip to content</a>
+
+    <header class="site-header">
+        <div class="shell header-inner">
+            <a class="brand" href="#top" aria-label="Santi Lo Faro portfolio home">
+                <span class="brand-symbol" aria-hidden="true">SLF</span>
+                <span class="brand-copy">
+                    <strong>Santi Lo Faro</strong>
+                    <small>Mechanical Engineering Portfolio</small>
+                </span>
+            </a>
+
+            <nav class="main-nav" aria-label="Primary navigation">
+                <a href="#projects">Projects</a>
+                <a href="#expertise">Expertise</a>
+                <a href="#workflow">Process</a>
+                <a href="#about">About</a>
+            </nav>
+        </div>
+    </header>
+
+    <main id="main-content">
+        <section class="hero" id="top">
+            <div class="hero-grid shell">
+                <div class="hero-copy">
+                    <p class="technical-label">CAD / ADDITIVE MANUFACTURING / PROTOTYPING</p>
+                    <h1>Engineering ideas into <span>physical parts.</span></h1>
+                    <p class="hero-lead">
+                        Mechanical design portfolio focused on CAD modelling, additive manufacturing and advanced FDM 3D printing — from design decisions to production-ready prototypes.
+                    </p>
+
+                    <div class="hero-actions">
+                        <a class="button button--primary" href="#projects">Explore projects</a>
+                        <a class="button button--secondary" href="https://github.com/SantiLoFaro" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+                    </div>
+
+                    <div class="hero-specs" aria-label="Core capabilities">
+                        <div><span>01</span><strong>CAD Design</strong><small>Parametric modelling & technical development</small></div>
+                        <div><span>02</span><strong>FDM Expertise</strong><small>Print strategy, tolerances & optimization</small></div>
+                        <div><span>03</span><strong>Prototyping</strong><small>Iteration from concept to physical validation</small></div>
+                    </div>
+                </div>
+
+                <div class="viewer-column">
+                    <section class="viewer-frame" aria-labelledby="viewer-title">
+                        <div class="viewer-topbar">
+                            <div><span class="status-dot" aria-hidden="true"></span><span>LIVE STL VIEWER</span></div>
+                            <span id="viewer-counter">01 / 06</span>
+                        </div>
+
+                        <div class="stl-viewer" id="stl-viewer" aria-label="Interactive 3D STL model viewer">
+                            <div class="viewer-grid" aria-hidden="true"></div>
+                            <div class="viewer-loading" id="viewer-loading">
+                                <span class="loader-ring" aria-hidden="true"></span>
+                                <strong>Loading STL model</strong>
+                                <small id="viewer-status">models/stl1.stl</small>
+                            </div>
+                            <canvas id="stl-canvas"></canvas>
+                            <div class="axis-hud" aria-hidden="true"><span class="axis axis--x">X</span><span class="axis axis--y">Y</span><span class="axis axis--z">Z</span></div>
+                        </div>
+
+                        <div class="viewer-info">
+                            <div>
+                                <p class="technical-label" id="viewer-file">STL1.STL</p>
+                                <h2 id="viewer-title">Selected Engineering Model</h2>
+                                <p id="viewer-description">Interactive STL visualization. Drag to rotate and scroll to zoom.</p>
+                            </div>
+                            <div class="viewer-controls" aria-label="Model controls">
+                                <button id="prev-model" type="button" aria-label="Previous model">←</button>
+                                <button id="toggle-cycle" type="button" aria-pressed="false">Pause</button>
+                                <button id="next-model" type="button" aria-label="Next model">→</button>
+                            </div>
+                        </div>
+
+                        <div class="viewer-progress" aria-hidden="true"><span id="viewer-progress-bar"></span></div>
+                    </section>
+                    <p class="viewer-note">AUTOCYCLE 7 SEC · DRAG TO ROTATE · WHEEL TO ZOOM</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="marquee-strip" aria-label="Technical competencies">
+            <div class="marquee-content">
+                <span>PARAMETRIC CAD</span><i>+</i><span>FDM PRINTING</span><i>+</i><span>RAPID PROTOTYPING</span><i>+</i><span>DFAM</span><i>+</i><span>TOLERANCE DESIGN</span><i>+</i><span>PROCESS OPTIMIZATION</span>
+            </div>
+        </section>
+
+        <section class="section" id="projects">
+            <div class="shell">
+                <header class="section-header">
+                    <div><p class="technical-label">SELECTED STL WORK</p><h2>Engineering models in the viewer.</h2></div>
+                    <p>Each project maps directly to <code>stl1.stl</code>, <code>stl2.stl</code> and the following numbered files in the <code>/models</code> directory.</p>
+                </header>
+                <div class="project-grid" id="project-grid"></div>
+            </div>
+        </section>
+
+        <section class="section section--panel" id="expertise">
+            <div class="shell">
+                <header class="section-header">
+                    <div><p class="technical-label">ENGINEERING EXPERTISE</p><h2>Strong hands-on experience in 3D printing.</h2></div>
+                    <p>Practical expertise across the complete FDM workflow: CAD modelling, print preparation, orientation, tolerances, supports, troubleshooting, iteration and functional prototyping.</p>
+                </header>
+
+                <div class="expertise-layout">
+                    <article class="expertise-feature">
+                        <div class="feature-index">01</div>
+                        <p class="technical-label">ADDITIVE MANUFACTURING</p>
+                        <h3>Expert-level FDM 3D printing workflow.</h3>
+                        <p>Design decisions are made with the manufacturing process in mind: geometry, wall structure, layer orientation, dimensional fit, supports, strength and repeatability.</p>
+                        <ul class="technical-list">
+                            <li>Printability analysis and model preparation</li>
+                            <li>Orientation and support strategy</li>
+                            <li>Functional tolerances and mechanical fit</li>
+                            <li>Failure analysis and iterative optimization</li>
+                            <li>Rapid prototyping and physical validation</li>
+                        </ul>
+                    </article>
+
+                    <div class="expertise-stack">
+                        <article class="expertise-card"><span>02</span><p class="technical-label">CAD</p><h3>Mechanical modelling</h3><p>Structured 3D modelling for functional parts, assemblies, prototypes and manufacturable components.</p></article>
+                        <article class="expertise-card"><span>03</span><p class="technical-label">DFAM</p><h3>Design for additive manufacturing</h3><p>Geometry developed around the opportunities and constraints of layer-based manufacturing.</p></article>
+                        <article class="expertise-card"><span>04</span><p class="technical-label">VALIDATION</p><h3>Prototype-driven iteration</h3><p>Build, inspect, test and refine until the physical component meets its intended functional target.</p></article>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="workflow">
+            <div class="shell">
+                <header class="section-header">
+                    <div><p class="technical-label">WORKFLOW</p><h2>From requirement to physical prototype.</h2></div>
+                    <p>A disciplined workflow keeps each design decision connected to function, manufacturability and validation.</p>
+                </header>
+
+                <ol class="process-list">
+                    <li><span class="process-number">01</span><div><h3>Define</h3><p>Requirements, dimensions, interfaces and constraints.</p></div></li>
+                    <li><span class="process-number">02</span><div><h3>Model</h3><p>CAD geometry, parametric decisions and functional clearances.</p></div></li>
+                    <li><span class="process-number">03</span><div><h3>Prepare</h3><p>Orientation, support strategy and print-focused optimization.</p></div></li>
+                    <li><span class="process-number">04</span><div><h3>Prototype</h3><p>Physical production through FDM additive manufacturing.</p></div></li>
+                    <li><span class="process-number">05</span><div><h3>Validate</h3><p>Fit, function, tolerance and manufacturability checks.</p></div></li>
+                    <li><span class="process-number">06</span><div><h3>Iterate</h3><p>Refine the model using evidence from the physical prototype.</p></div></li>
+                </ol>
+            </div>
+        </section>
+
+        <section class="section about-section" id="about">
+            <div class="shell about-grid">
+                <div><p class="technical-label">PROFILE</p><h2>Engineering mindset. Digital tools. Physical results.</h2></div>
+                <div class="about-copy">
+                    <p>My work combines engineering problem solving with practical experience in CAD, 3D printing and rapid prototyping. I approach additive manufacturing as an engineering process rather than simply a fabrication step.</p>
+                    <p>The objective is always the same: create parts that are understandable, manufacturable, testable and useful in the real world.</p>
+                    <div class="tool-row" aria-label="Tools and competencies">
+                        <span>Fusion 360</span><span>CAD</span><span>FDM</span><span>STL</span><span>Rapid Prototyping</span><span>DFAM</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="shell footer-top">
+            <div class="footer-callout">
+                <p class="technical-label">CONTACT / PORTFOLIO</p>
+                <h2>Build. Test. Improve.</h2>
+                <p>Mechanical design, additive manufacturing and technical prototyping.</p>
+            </div>
+
+            <div class="footer-links">
+                <div>
+                    <span>PROFILE</span>
+                    <a href="https://github.com/SantiLoFaro" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+                    <a href="https://www.linkedin.com/in/santi-lo-faro-b2489118b/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
+                </div>
+                <div>
+                    <span>NAVIGATION</span>
+                    <a href="#projects">Projects</a>
+                    <a href="#expertise">Expertise</a>
+                    <a href="#workflow">Process</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="shell footer-bottom">
+            <p>Designed &amp; developed by <strong>Santi Lo Faro</strong>.</p>
+            <p>CAD · Additive Manufacturing · FDM 3D Printing</p>
+        </div>
+    </footer>
+
+    <script type="module" src="js/site.js"></script>
+</body>
+</html>

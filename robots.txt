@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://santilofaro.github.io/mechanical_engineering_portfolio/sitemap.xml
